@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import { lineChartData } from './testData';
+import DonutComponent from './components/DonutChart/DonutComponent';
+// import BarChart from './components/BarChart/BarChart';
 import './App.css';
 
-function App() {
+const App = (props) =>  {
+  const [selectedGroup, setSelectedGroup] = useState('All');
+  const [selectedLine, setSelectedLine] = useState(lineChartData);
+  const [groupColour, setGroupColour] = useState('lightgrey');
+
+  function updateBarChart(group, colour) {
+    setSelectedGroup(group);
+    setGroupColour(colour);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <svg viewBox="-2 -2 100 100" preserveAspectRatio="xMidYMid meet"> 
+        <DonutComponent
+          x={15}
+          y={15} 
+          onChangeGroup={updateBarChart}
+        />
+        {/* <BarChart
+          positionX={35}
+          positionY={35}
+          width={80}
+          height={100}
+          selectedGroup={selectedGroup}
+          barColour={groupColour}
+        /> */}
+      </svg>
     </div>
   );
 }
