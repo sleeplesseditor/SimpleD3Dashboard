@@ -18,7 +18,8 @@ const animateSlice = (sliceRef, slice, innerRadius, outerRadius) => {
 const sliceTextStyle = {
   fontSize: "1px",
   fontFamily: "verdana",
-  fontWeight: "bold"
+  fontWeight: "bold",
+  cursor: "pointer"
 };
 
 const SliceComponent = props => {
@@ -55,6 +56,10 @@ const SliceComponent = props => {
     setHoveredSlice(null);
   }, [unHoveredSlice, sliceRef, innerRadius]);
 
+  const donutSliceStyle = {
+    cursor: "pointer"
+  }
+
   return (
     <g
       onClick={() => onClickSlice(label, fill, value)}
@@ -63,7 +68,7 @@ const SliceComponent = props => {
       ref={sliceRef}
       index={index}
     >
-      <path d={sliceArc(value)} fill={fill} />
+      <path d={sliceArc(value)} fill={fill} style={donutSliceStyle} />
       <text
         transform={`translate(${sliceArc.centroid(value)}) rotate(${angle(
           value

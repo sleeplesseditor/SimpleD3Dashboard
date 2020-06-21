@@ -16,7 +16,8 @@ const animateRect = (rectRef, height, colour, countTextRef) => {
 
 const barTextStyle = {
   fontSize: "1px",
-  fontFamily: "verdana"
+  fontFamily: "verdana",
+  fontWeight: "bold"
 };
 
 const Bar = props => {
