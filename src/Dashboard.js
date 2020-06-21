@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { lineChartData } from './testData';
 import DonutComponent from './components/DonutChart/DonutComponent';
-// import BarChart from './components/BarChart/BarChart';
+import BarChart from './components/BarChart/BarChartComponent';
 import './App.scss';
 
 const App = (props) =>  {
@@ -22,14 +22,14 @@ const App = (props) =>  {
           y={15} 
           onChangeGroup={updateBarChart}
         />
-        {/* <BarChart
+        <BarChart
           positionX={35}
           positionY={35}
           width={80}
           height={100}
           selectedGroup={selectedGroup}
           barColour={groupColour}
-        /> */}
+        />
       </svg>
     </div>
   );
