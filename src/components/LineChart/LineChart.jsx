@@ -118,38 +118,40 @@ const LineChart = props => {
     .range([height, 0]);
 
   return (
-    <g transform={`translate(${positionX}, ${positionY})`}>
-      <text
-        textAnchor="middle"
-        style={lineSubTitleTextStyle}
-        fill="lightgrey"
-        x={22}
-        y={-2}
-      >
-        Performance 2012
-      </text>
-      <text
-        textAnchor="middle"
-        style={lineTitleTextStyle}
-        fill="grey"
-        x={22}
-        y={8}
-      >
-        {selectedData[selectedData.length - 1].measure}
-      </text>
-      <Line
-        xScale={xScale}
-        yScale={yScale}
-        lineColour={lineColour}
-        selectedData={selectedData}
-      />
-      <Dots
-        xScale={xScale}
-        yScale={yScale}
-        dotsColour={lineColour}
-        selectedData={selectedData}
-      />
-    </g>
+    <svg viewBox="-2 -2 140 30" preserveAspectRatio="xMidYMid meet">
+      <g transform={`translate(${positionX}, ${positionY}) scale(1.4)`}>
+        <text
+          textAnchor="middle"
+          style={lineSubTitleTextStyle}
+          fill="lightgrey"
+          x={22}
+          y={-2}
+        >
+          Performance 2012
+        </text>
+        <text
+          textAnchor="middle"
+          style={lineTitleTextStyle}
+          fill="grey"
+          x={22}
+          y={8}
+        >
+          {selectedData[selectedData.length - 1].measure}
+        </text>
+        <Line
+          xScale={xScale}
+          yScale={yScale}
+          lineColour={lineColour}
+          selectedData={selectedData}
+        />
+        <Dots
+          xScale={xScale}
+          yScale={yScale}
+          dotsColour={lineColour}
+          selectedData={selectedData}
+        />
+      </g>
+    </svg>
   );
 };
 

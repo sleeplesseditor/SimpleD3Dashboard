@@ -94,13 +94,15 @@ const BarChart = (props) => {
       count={datum.measure} 
     />
   )
-  
+
   return (
-    <g transform={`translate(${positionX}, ${positionY}) scale(1, -1)`}>
-      { groupsLabel }
-      { bars }
-      { categoriesLabel }
-    </g>
+    <svg viewBox="-2 -15 180 70" preserveAspectRatio="xMidYMid meet">
+      <g transform={`translate(${positionX}, ${positionY}) scale(2.3, -1.7)`}>
+        { groupsLabel }
+        { bars }
+        { categoriesLabel }
+      </g>
+    </svg>
   );
 }
 

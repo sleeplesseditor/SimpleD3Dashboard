@@ -51,27 +51,29 @@ const DonutComponent = props => {
   const measures = donutChartData.map(item => item.measure);
 
   return (
-    <g transform={`translate(${x}, ${y})`}>
-      {pieChart(measures).map(renderSlice)}
-      <text
-        x="0"
-        y="-1.5em"
-        textAnchor="middle"
-        style={donutTextStyle}
-        fill={textFill}
-      >
-        {donutTitle && (
-          <tspan dy="1em" x="0.3em">
-            {donutTitle}{" "}
-          </tspan>
-        )}
-        {selectedCount && (
-          <tspan dy="1.5em" x="0.3em">
-            {selectedCount * 100}%
-          </tspan>
-        )}
-      </text>
-    </g>
+    <svg viewBox="-2 -2 50 50" preserveAspectRatio="xMidYMid meet" width="400px">
+      <g transform={`translate(${x}, ${y}) scale(1.4)`}>
+        {pieChart(measures).map(renderSlice)}
+        <text
+          x="0"
+          y="-1.5em"
+          textAnchor="middle"
+          style={donutTextStyle}
+          fill={textFill}
+        >
+          {donutTitle && (
+            <tspan dy="1em" x="0.3em">
+              {donutTitle}{" "}
+            </tspan>
+          )}
+          {selectedCount && (
+            <tspan dy="1.5em" x="0.3em">
+              {selectedCount * 100}%
+            </tspan>
+          )}
+        </text>
+      </g>
+    </svg>
   );
 };
 
